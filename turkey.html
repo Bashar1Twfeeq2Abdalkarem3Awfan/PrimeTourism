@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوجهات السياحية في تركيا - Turk Group</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* الأنماط الأساسية */
+        body {
+            font-family: 'Cairo', sans-serif;
+            text-align: right;
+        }
+
+        .destination-section {
+            padding: 80px 0;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .destination-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        }
+
+        .destination-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .destination-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            text-align: right;
+        }
+
+        .destination-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .destination-content h2 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: right;
+        }
+
+        .destination-content p {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: right;
+        }
+
+        /* أنماط بطاقات الفيديو */
+        .trip-wrapper {
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .trip-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            background: white;
+            text-align: right;
+        }
+
+        .trip-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trip-card video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .trip-card .content {
+            padding: 20px;
+            background: white;
+        }
+
+        .trip-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            color: #357ABD;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            text-align: right;
+            text-align: center;
+        }
+
+        .trip-card .price {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 400;
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .trip-card .info {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 500;
+            color: #888;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .trip-card .info svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* أنماط الأزرار */
+        .booking-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #357ABD;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+
+        .booking-btn:hover {
+            background: transparent;
+            border-color: white;
+            transform: translateY(-3px);
+            color: white;
+            text-decoration: none;
+        }
+
+        /* تأثيرات حركية */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* تجاوب الشاشة */
+        @media (max-width: 992px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .destination-content h2 {
+                font-size: 2.8rem;
+            }
+
+            .destination-content p {
+                font-size: 1.1rem;
+            }
+
+            .trip-card h3 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destination-section {
+                background-attachment: scroll;
+            }
+
+            .destination-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .destination-content p {
+                font-size: 1rem;
+            }
+
+            .trip-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .trip-card .price {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* تنسيق القائمة العلوية */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #1a1a1a;
+            z-index: 1002;
+            transition: right 0.3s ease;
+            padding: 60px 20px 20px;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .close-menu:hover {
+            color: #f0f637;
+            transform: rotate(90deg);
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu ul li {
+            margin-bottom: 15px;
+        }
+
+        .side-menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Cairo', sans-serif;
+            display: block;
+            padding: 10px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .side-menu ul li a:hover {
+            background: #f0f637;
+            color: #000;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+            display: none;
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        /* تعديل المسافة العلوية للمحتوى */
+        .destination-section {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="top-nav">
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- القائمة الجانبية -->
+    <div class="side-menu">
+        <button class="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home" style="margin-left: 10px;"></i>الصفحة الرئيسية</a></li>
+            <li><a href="index.html#contact_us"><i class="fas fa-envelope" style="margin-left: 10px;"></i>تواصل معنا</a></li>
+        </ul>
+    </div>
+
+    <!-- خلفية القائمة -->
+    <div class="menu-overlay"></div>
+
+    <!-- اسطنبول -->
+    <section class="destination-section" style="background-image: url('images/istanbul.jpg');">
+        <div class="destination-container">
+            <div class="destination-content">
+                <h2>اسطنبول</h2>
+                <p>اكتشف سحر اسطنبول، المدينة التي تجمع بين الشرق والغرب. تمتع بزيارة المساجد التاريخية، الأسواق
+                    التقليدية، والمطاعم الشهية. استمتع برحلات بحرية في مضيق البوسفور، وتجول في شوارع المدينة العريقة.
+                </p>
+                <a href="booking.html" class="booking-btn">احجز رحلتك إلى اسطنبول</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- طرابزون -->
+    <section class="destination-section" style="background-image: url('images/trabzon.jpg');">
+        <div class="destination-container">
+            <div class="destination-content">
+                <h2>طرابزون</h2>
+                <p>استمتع بجمال طبيعة طرابزون الخلابة، حيث الجبال الشاهقة والبحيرات الصافية. اكتشف دير سوميلا التاريخي،
+                    وتمتع بزيارة بحيرة أوزنجول الساحرة. جرب المأكولات المحلية الشهية وتجول في الأسواق التقليدية.</p>
+                <a href="booking.html" class="booking-btn">احجز رحلتك إلى طرابزون</a>
+            </div>
+            <div class="trip-wrapper">
+                <div class="cards-container">
+                    <div class="trip-card">
+                        <video muted loop preload="metadata" playsinline>
+                            <source src="video/v-uze-2.mp4" type="video/mp4" />
+                            متصفحك لا يدعم عرض الفيديو.
+                        </video>
+                        <div class="content">
+                            <h3>أوزنجول (Uzungöl)</h3>
+                            <div class="price">واحدة من أشهر الوجهات في الشمال التركي، تتميز ببحيرتها الخضراء المحاطة
+                                بالجبال والغابات، وأجوائها الهادئة المثالية للعائلات والباحثين عن الاسترخاء</div>
+                            <div class="info">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+                                </svg>
+                                <span>Türkiye, Trabzon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trip-card">
+                        <video muted loop preload="metadata" playsinline>
+                            <source src="video/v-ede-2.mov" type="video/mp4" />
+                            متصفحك لا يدعم عرض الفيديو.
+                        </video>
+                        <div class="content">
+                            <h3>آيدر (Ayder)</h3>
+                            <div class="price">قرية جبلية ساحرة تقع في مرتفعات ريزا، تشتهر بالينابيع الحارة، الشلالات،
+                                والطبيعة الخلابة. وجهة مثالية لمحبي الهدوء والهواء النقي</div>
+                            <div class="info">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+                                </svg>
+                                <span>Türkiye, Trabzon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trip-card">
+                        <video muted loop preload="metadata" playsinline>
+                            <source src="video/v-ham-1.mov" type="video/mp4" />
+                            متصفحك لا يدعم عرض الفيديو.
+                        </video>
+                        <div class="content">
+                            <h3>همسي كوي (Hamsiköy)</h3>
+                            <div class="price">تشتهر بالمناظر الجبلية و"رز بالحليب" الشهير. مكان مثالي لعشاق الأجواء
+                                الريفية الأصيلة</div>
+                            <div class="info">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+                                </svg>
+                                <span>Türkiye, Trabzon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trip-card">
+                        <video muted loop preload="metadata" playsinline>
+                            <source src="video/v-rize-2.mov" type="video/mp4" />
+                            متصفحك لا يدعم عرض الفيديو.
+                        </video>
+                        <div class="content">
+                            <h3>ريزا (Rize)</h3>
+                            <div class="price">مدينة الشاي التركي بامتياز، فيها المرتفعات الساحرة مثل "بوكت"، وتُعد نقطة
+                                انطلاق لكثير من المغامرات الجبلية</div>
+                            <div class="info">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
+                                </svg>
+                                <span>Türkiye, Trabzon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مرمريس -->
+    <section class="destination-section" style="background-image: url('images/marmaris.jpg');">
+        <div class="destination-container">
+            <div class="destination-content">
+                <h2>مرمريس</h2>
+                <p>استمتع بأجمل شواطئ البحر المتوسط في مرمريس. تمتع بالسباحة في المياه الصافية، والرياضات المائية
+                    المتنوعة. اكتشف الميناء التاريخي، وتجول في الشوارع المحيطة بالمارينا. جرب المأكولات البحرية الطازجة
+                    في المطاعم المحلية.</p>
+                <a href="booking.html" class="booking-btn">احجز رحلتك إلى مرمريس</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- أنطاليا -->
+    <section class="destination-section" style="background-image: url('images/antalya.jpg');">
+        <div class="destination-container">
+            <div class="destination-content">
+                <h2>أنطاليا</h2>
+                <p>اكتشف جمال أنطاليا، عاصمة الريفيرا التركية. تمتع بشواطئها الرملية، ومرافئها التاريخية، وشلالاتها
+                    الطبيعية. استمتع بزيارة المدينة القديمة "كاليتشي"، وتجول في المتاحف الأثرية. جرب المأكولات المحلية
+                    في المطاعم المطلة على البحر.</p>
+                <a href="booking.html" class="booking-btn">احجز رحلتك إلى أنطاليا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم العملاء -->
+    <section class="client_section" style="background: linear-gradient(135deg, #1a2a6c, #357ABD); padding: 100px 0;">
+        <div class="container">
+            <div class="heading_container" style="text-align: center; margin-bottom: 60px;">
+                <h2 style="font-family: 'Cairo', sans-serif; font-weight: 800; color: #fff; font-size: 2.8rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">
+                    آراء عملائنا
+                </h2>
+                <p style="font-family: 'Cairo', sans-serif; color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                    نفتخر بتجارب عملائنا المميزة معنا ونعمل دائماً على تقديم أفضل الخدمات
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="client_box" style="background: rgba(255,255,255,0.95); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; transition: all 0.4s ease; position: relative; overflow: hidden;">
+                        <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(53,122,189,0.1); font-size: 60px;">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="client_img" style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 25px; border: 4px solid #357ABD; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <img src="images/client-1.jpg" alt="عميل" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="client_detail" style="text-align: center;">
+                            <h4 style="font-family: 'Cairo', sans-serif; font-weight: 700; color: #333; margin-bottom: 15px; font-size: 1.3rem;">
+                                أحمد محمد
+                            </h4>
+                            <p style="font-family: 'Cairo', sans-serif; color: #555; font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
+                                تجربة رائعة مع Turk Group. الخدمة ممتازة والتنظيم احترافي. أنصح الجميع بالتعامل معهم.
+                            </p>
+                            <div class="rating" style="margin-top: 15px;">
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="client_box" style="background: rgba(255,255,255,0.95); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; transition: all 0.4s ease; position: relative; overflow: hidden;">
+                        <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(53,122,189,0.1); font-size: 60px;">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="client_img" style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 25px; border: 4px solid #357ABD; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <img src="images/client-2.jpg" alt="عميل" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="client_detail" style="text-align: center;">
+                            <h4 style="font-family: 'Cairo', sans-serif; font-weight: 700; color: #333; margin-bottom: 15px; font-size: 1.3rem;">
+                                سارة أحمد
+                            </h4>
+                            <p style="font-family: 'Cairo', sans-serif; color: #555; font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
+                                رحلة لا تُنسى في طرابزون. كل التفاصيل كانت منظمة بشكل احترافي. شكراً لـ Turk Group.
+                            </p>
+                            <div class="rating" style="margin-top: 15px;">
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="client_box" style="background: rgba(255,255,255,0.95); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 30px; transition: all 0.4s ease; position: relative; overflow: hidden;">
+                        <div class="quote-icon" style="position: absolute; top: 20px; right: 20px; color: rgba(53,122,189,0.1); font-size: 60px;">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div class="client_img" style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 25px; border: 4px solid #357ABD; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                            <img src="images/client-3.jpg" alt="عميل" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="client_detail" style="text-align: center;">
+                            <h4 style="font-family: 'Cairo', sans-serif; font-weight: 700; color: #333; margin-bottom: 15px; font-size: 1.3rem;">
+                                محمد علي
+                            </h4>
+                            <p style="font-family: 'Cairo', sans-serif; color: #555; font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
+                                أفضل وكالة سفر تعاملت معها. الأسعار منافسة والخدمة ممتازة. سأتعامل معهم مرة أخرى.
+                            </p>
+                            <div class="rating" style="margin-top: 15px;">
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                                <i class="fas fa-star" style="color: #f0f637; font-size: 1.2rem; margin: 0 2px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- إضافة قسم التصميم والتطوير -->
+    <section class="development-section" style="background: #1a1a1a; padding: 20px 0; text-align: center; margin-top: 0;">
+        <div class="container">
+            <p style="color: #fff; margin: 0; font-size: 14px; font-family: 'Cairo', sans-serif;">
+                تصميم وتطوير <a href="https://wa.me/966583043497" style="color: #f0f637; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">BT-Development</a>
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // تأثير ظهور المحتوى عند التمرير
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('.destination-content').forEach(content => {
+            observer.observe(content);
+        });
+
+        // تشغيل الفيديوهات تلقائياً
+        document.querySelectorAll('video').forEach(video => {
+            video.play();
+        });
+
+        // تأثيرات حركية للبطاقات
+        const cards = document.querySelectorAll('.trip-card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        cards.forEach(card => {
+            cardObserver.observe(card);
+        });
+
+        // سكريبت القائمة
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sideMenu = document.querySelector('.side-menu');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const closeMenu = document.querySelector('.close-menu');
+
+            menuToggle.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+            });
+
+            closeMenu.addEventListener('click', function() {
+                sideMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+
+            menuOverlay.addEventListener('click', function() {
+                sideMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

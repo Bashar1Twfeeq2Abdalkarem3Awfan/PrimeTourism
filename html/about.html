@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>
+    من نحن
+  </title>
+
+  <!-- range selctor slider style -->
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css" />
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="../css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="../css/responsive.css" rel="stylesheet" />
+  <!-- إضافة مكتبة Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <!-- إضافة خط Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    .hero_area {
+      background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../images/abot-2.jpg);
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    
+    .about-content {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      margin: 30px 0;
+    }
+
+    .features-section {
+      padding: 60px 0;
+      background: #f8f9fa;
+    }
+
+    .feature-box {
+      text-align: center;
+      padding: 30px;
+      margin: 15px 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      color: #f0f637;
+      margin-bottom: 20px;
+    }
+
+    .about-intro {
+      background: linear-gradient(135deg, #1a2a6c, #357ABD);
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 15px;
+      margin: 40px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+    }
+
+    .about-intro::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../images/pattern.png') repeat;
+      opacity: 0.1;
+    }
+
+    .about-intro h4 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 1.8rem;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .about-intro p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin: 0;
+      position: relative;
+    }
+
+    .slider_container .box {
+      padding: 40px;
+    }
+
+    .slider_container .detail-box h1 {
+      font-size: 48px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .slider_container .detail-box p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 991px) {
+        .slider_container .detail-box h1 {
+            font-size: 36px;
+        }
+
+        .slider_container .detail-box p {
+            font-size: 16px;
+        }
+
+        .feature-box {
+            margin-bottom: 30px;
+        }
+
+        .about-intro {
+            padding: 30px 15px;
+        }
+
+        .about-intro h4 {
+            font-size: 20px;
+        }
+
+        .about-intro p {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero_area {
+            min-height: 80vh;
+        }
+
+        .slider_container .box {
+            padding: 20px;
+        }
+
+        .slider_container .detail-box h1 {
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .slider_container .detail-box p {
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .features-section {
+            padding: 40px 0;
+        }
+
+        .feature-box {
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+        }
+
+        .about-intro {
+            padding: 40px 15px;
+            margin: 30px 15px;
+        }
+
+        .about-intro h4 {
+            font-size: 1.5rem;
+        }
+
+        .about-intro p {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero_area {
+            min-height: 60vh;
+        }
+
+        .slider_container .detail-box h1 {
+            font-size: 28px;
+        }
+
+        .slider_container .detail-box p {
+            font-size: 14px;
+        }
+
+        .feature-box {
+            margin: 10px 0;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+        }
+
+        .about-intro {
+            padding: 20px 10px;
+        }
+
+        .about-intro h4 {
+            font-size: 1.3rem;
+        }
+
+        .about-intro p {
+            font-size: 1rem;
+        }
+    }
+
+    /* تحسينات إضافية للتجاوب */
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media (min-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+    /* تحسين قراءة النصوص على الشاشات الصغيرة */
+    @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            word-wrap: break-word;
+        }
+
+        .row {
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+
+        .col-md-4 {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
+
+    /* تحسين الصور */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* تحسين الأزرار والروابط */
+    @media (max-width: 768px) {
+        .nav-link {
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+    }
+
+    /* تنسيق الخطوط */
+    body {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .slider_container .detail-box h1 {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 700;
+    }
+
+    .slider_container .detail-box p {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 400;
+        line-height: 1.8;
+    }
+
+    .feature-box h4 {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 600;
+        color: #000000;
+    }
+
+    .feature-box p {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    .about-intro h4 {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 600;
+    }
+
+    .about-intro p {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 400;
+    }
+
+    /* تحسين تنسيق النصوص العربية */
+    .nav-link {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 500;
+    }
+
+    .navbar-brand {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 700;
+    }
+
+    /* تحسين المسافات بين الحروف العربية */
+    .slider_container .detail-box p,
+    .feature-box p,
+    .about-intro p {
+        letter-spacing: 0.3px;
+    }
+
+    /* تحسين تنسيق العناوين */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 700;
+    }
+
+    /* تحسين تنسيق الأزرار */
+    .btn {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 500;
+    }
+
+    /* تحسين تنسيق النصوص في الشاشات الصغيرة */
+    @media (max-width: 768px) {
+        body {
+            font-size: 15px;
+        }
+        
+        .slider_container .detail-box h1 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .feature-box h4 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+
+    /* تنسيق info_section */
+    .info_section {
+      background: linear-gradient(135deg, #1a2a6c, #357ABD);
+      padding: 80px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info_section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../images/pattern.png') repeat;
+      opacity: 0.1;
+    }
+
+    .info_container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .social_container {
+      margin-bottom: 40px;
+    }
+
+    .info_social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .info_social a {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .info_social a:hover {
+      background: #f0f637;
+      transform: translateY(-5px);
+    }
+
+    .info_social img {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0) invert(1);
+    }
+
+    .info_link-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .info_link-box a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      margin-bottom: 15px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .info_link-box a:hover {
+      transform: translateX(-10px);
+      color: #f0f637;
+    }
+
+    .info_link-box img {
+      width: 25px;
+      height: 25px;
+      margin-left: 15px;
+      filter: brightness(0) invert(1);
+    }
+
+    .info_link-box span {
+      font-size: 1.1rem;
+    }
+
+    .footer_section {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px 0;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .footer_section p {
+      color: #fff;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .development_section {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px 0;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .development_section p {
+      color: #fff;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .development_section a {
+      color: #f0f637;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .development_section a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .about-intro {
+        padding: 40px 15px;
+        margin: 30px 15px;
+      }
+
+      .about-intro h4 {
+        font-size: 1.5rem;
+      }
+
+      .about-intro p {
+        font-size: 1.1rem;
+      }
+
+      .info_section {
+        padding: 60px 0 30px;
+      }
+
+      .info_social {
+        gap: 15px;
+      }
+
+      .info_social a {
+        width: 45px;
+        height: 45px;
+      }
+
+      .info_link-box {
+        padding: 20px;
+      }
+
+      .info_link-box span {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-intro h4 {
+        font-size: 1.3rem;
+      }
+
+      .about-intro p {
+        font-size: 1rem;
+      }
+
+      .info_social a {
+        width: 40px;
+        height: 40px;
+      }
+
+      .info_link-box {
+        padding: 15px;
+      }
+
+      .info_link-box span {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="#">
+            <span style="color: rgb(187, 182, 182);">
+              Turk Group
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="../index.html">
+                    <i class="fas fa-home" style="    padding-left: 10px;"></i>الرائيسية
+                    <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html#bookTrip">
+                    الوجهات السياحية
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html#service">
+                    الخدمات
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html#service_vip">VIP خدمات</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">من نحن</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact_us">تواصل بنا</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section ">
+      <div class="container">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slider_container">
+                <div class="box">
+                  <div class="detail-box">
+                    <h1 style="color: #f0f637;">
+                      من نحن
+                    </h1>
+                    <p>
+                      وكالة Turk Group للسياحة والسفر تقدم خدمات مميزة ومتنوعة لتلبية جميع احتياجات رحلاتك...
+                      <!-- أضف هنا نص تعريفي بالمؤسسة، رؤيتها، رسالتها، وقيمها -->
+                    </p>
+                    <p>
+                      بخبرة تمتد لأكثر من 8 سنوات في مجال السياحة، نفخر في ترك قروب بتقديم تجربة سفر متكاملة تجمع بين الراحة، الفخامة، والتنظيم الدقيق.
+                      من لحظة وصولك حتى مغادرتك، نحن نرافقك في كل تفاصيل رحلتك، لتصنع ذكريات لا تُنسى بين أحضان الطبيعة الخلابة والمعالم الساحرة.
+
+                      <!-- أضف هنا نص تعريفي بالمؤسسة، رؤيتها، رسالتها، وقيمها -->
+                    </p>
+               
+                  </div>
+                 
+                </div>
+       
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="features-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h4>وجهات متنوعة</h4>
+              <p>نقدم رحلات إلى أهم الوجهات السياحية في تركيا وجورجيا</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>خدمات VIP</h4>
+              <p>نقدم خدمات فاخرة ومميزة لعملائنا الكرام</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h4>دعم 24/7</h4>
+              <p>فريقنا متاح على مدار الساعة لخدمتكم</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-intro">
+      <div class="container">
+        <h4>مقرنا في طرابزون – منطقة يومرا، ونقدم خدماتنا في أهم الوجهات السياحية:</h4>
+        <p>
+          الشمال التركي – إسطنبول – أنطاليا – مرمريس – جورجيا.
+        </p>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+  </div>
+
+    <!-- info section -->
+
+  <section class="info_section" id="contact_us">
+    <div class="container">
+      <div class="heading_container">
+        <h2 style="color: #fff;">
+          تواصل بناء
+        </h2>
+        <p style="color: rgb(198, 195, 195);">
+          نحن معك اين ما تكون
+        </p>
+      </div>
+    </div>
+    <div class="info_container">
+      <div class="container">
+        <div class="social_container">
+          <div class="info_social">
+            <div>
+              <a href="">
+                <img src="../images/facebook-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="../images/twitter-logo-button.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="../images/linkedin.png" alt="">
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="../images/instagram.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <h5>
+              Address
+            </h5>
+            <div class="info_link-box">
+              <a href="">
+                <img src="../images/location2.png" alt="">
+                <span> Yomra trabzon turkiye</span>
+              </a>
+              <a href="">
+                <img src="../images/call.png" alt="">
+                <span>Call : +905525156350</span>
+              </a>
+              <a href="">
+                <img src="../images/mail.png" alt="">
+                <span> turkgroup61@gmail.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- footer section -->
+        <section class="footer_section">
+          <p>
+            جميع الحقوق محفوظة &copy; 2025 لدى <br> للسياحة والسفر Turk Group
+          </p>
+        </section>
+        <!-- إضافة قسم التصميم والتطوير -->
+        <section class="development_section" style="background: #1a1a1a; padding: 15px 0; text-align: center;">
+          <div class="container">
+            <p style="color: #fff; margin: 0; font-size: 14px;">
+              تصميم وتطوير <a href="https://wa.me/966583043497" style="color: #f0f637; text-decoration: none; font-weight: 600;">BT-Development</a>
+            </p>
+          </div>
+        </section>
+        <!-- footer section -->
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+
+
+  <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.js"></script>
+  <script type="text/javascript" src="../js/slidepost.js"></script>
+
+  <!-- range selector slider script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+</body>
+</html>
